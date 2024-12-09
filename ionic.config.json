@@ -1,0 +1,7 @@
+{
+  "name": "Comidapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
