@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gestión de Productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Sección para agregar un nuevo producto -->
+  <ion-list>
+    <ion-item>
+      <ion-input placeholder="Nombre del Producto" [(ngModel)]="nombreProducto"></ion-input>
+      <ion-button (click)="agregarP()">Agregar</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Lista de productos con opciones para modificar y eliminar -->
+  <ion-list>
+    <ion-item *ngFor="let producto of productos">
+      <ion-label>{{ producto.name }}</ion-label>
+      <!-- Botón para modificar el producto -->
+      <ion-button (click)="modificarProducto(producto.id, producto.name)">Modificar</ion-button>
+      <!-- Botón para eliminar el producto -->
+      <ion-button color="danger" (click)="eliminarProducto(producto.id)">Eliminar</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Botón para volver al menú principal -->
+  <ion-row>
+    <ion-col>
+      <ion-button expand="full" color="secondary" (click)="VolverMenuPrinc()">Volver al Menú Principal</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Comidapp</ion-title>
+  </ion-toolbar>
+</ion-footer>

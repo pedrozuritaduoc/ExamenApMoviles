@@ -1,0 +1,15 @@
+
+---instalar para firebase
+npm install firebase
+npm install @angular/fire firebase
+
+
+---crear servicio
+ionic generate service services/firebase
+
+---ver codigo de main.ts y app.module.ts
+
+
+user
+email: pe.zurita@duocuc.cl
+password: pe.zurita

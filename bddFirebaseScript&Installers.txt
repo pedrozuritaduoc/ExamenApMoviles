@@ -1,0 +1,24 @@
+
+----instalar firebase
+npm install firebase
+npm install @angular/fire firebase  (con angular)
+
+
+----sdk
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyA1u_w_6Gtkr_ArUAiK-cB3ZPJibx0OhPA",
+  authDomain: "proyectocomida-f9f9e.firebaseapp.com",
+  projectId: "proyectocomida-f9f9e",
+  storageBucket: "proyectocomida-f9f9e.firebasestorage.app",
+  messagingSenderId: "208793762597",
+  appId: "1:208793762597:web:ed1e6f261d975b4cdff8cc"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
