@@ -13,3 +13,7 @@ ionic generate service services/firebase
 user
 email: pe.zurita@duocuc.cl
 password: pe.zurita
+
+user
+email: mateo@gmail.com
+password: mateo.user

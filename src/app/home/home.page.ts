@@ -18,8 +18,21 @@ export class HomePage {
     this.router.navigate(['pagina2']);
   }
 
- 
+  irQuienesSomos(){
+    this.router.navigate(['quienes-somos']);
+  }
 
-
-
+  
+   // Método para cerrar sesión
+   async cerrarSesion() {
+    try {
+      await this.firebaseService.cerrarSesion(); // Usamos el método del servicio Firebase
+      this.router.navigate(['/login']); // Redirige al login después de cerrar sesión
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
+  }
 }
+
+
+

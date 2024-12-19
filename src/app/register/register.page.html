@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    
+    <ion-title>Registro de user</ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <a [routerLink]="['/login']">Volver</a>
+        </ion-col>
+      </ion-row>
+      
+    </ion-grid>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-item>
+    <ion-input
+      label="Email"
+      labelPlacement="floating"
+      type="email"
+      [(ngModel)]="account.Email"
+      >
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input
+      label="Password"
+      labelPlacement="floating"
+      type="password"
+      [(ngModel)]="account.Password"
+      >
+    </ion-input>
+  </ion-item>
+
+  <ion-button
+    expand="full"
+    (click)="registerUser()"
+    >
+    Registrate
+  </ion-button>
+
+</ion-content>

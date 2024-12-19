@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 // Firebase
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth'; // Importa AngularFireAuth para la autenticación
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'; // Importar 'map'
 import { DocumentChangeAction } from '@angular/fire/compat/firestore';
@@ -9,7 +10,10 @@ import { DocumentChangeAction } from '@angular/fire/compat/firestore';
   providedIn: 'root',
 })
 export class FirebaseService {
-  constructor(private firestore: AngularFirestore) {}
+  constructor(
+    private firestore: AngularFirestore,
+    private afAuth: AngularFireAuth  // Inyecta AngularFireAuth aquí
+  ) {}
 
   // Método para agregar datos
   addItem(collectionName: string, data: any): Promise<any> {
@@ -40,5 +44,16 @@ export class FirebaseService {
   // Método para eliminar datos
   deleteItem(collectionName: string, documentId: string): Promise<void> {
     return this.firestore.collection(collectionName).doc(documentId).delete();
+  }
+
+  // Método para cerrar sesión
+  async cerrarSesion(): Promise<void> {
+    try {
+      await this.afAuth.signOut();  // Cierra la sesión con Firebase
+      console.log('Sesión cerrada con éxito');
+    } catch (error) {
+      console.error('Error al cerrar sesión', error);
+      throw error; // Lanza el error para ser manejado en el componente
+    }
   }
 }

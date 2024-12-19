@@ -7,7 +7,7 @@
         <!--ion card-->
         <ion-card>
           <div class="ion-text-center">
-            <img alt="logoComidapp" src="../../assets/comidappLogo.jpg" width="200"/>
+            <img alt="logoComidapp" src="../../assets/comidappLogo.jpg" width="200" />
           </div>
 
           <ion-card-header>
@@ -18,43 +18,43 @@
               Ingresa tus datos para iniciar sesion
             </ion-card-subtitle>
           </ion-card-header>
-  
+
           <ion-card-content>
             <ion-item>
               <ion-input type="email" placeholder="Ingresa tu email" [(ngModel)]="gEmail">
               </ion-input>
             </ion-item>
-          
+
             <ion-item>
-              <ion-input type="password" placeholder="Ingresa tu password"
-              [(ngModel)]="gPassword">
+              <ion-input type="password" placeholder="Ingresa tu password" [(ngModel)]="gPassword">
               </ion-input>
             </ion-item>
-          
+
             <ion-button expand="full" (click)="loginUser()">Login</ion-button>
             <ion-row>
-              <ion-col><div class="register">Register</div></ion-col>
-              <ion-col> <div class="forgetpass">Olvidaste la password?</div></ion-col>
+              <ion-col>
+                <div class="register">
+                  <a [routerLink]="['/register']">Registrate</a>
+
+                </div>
+              </ion-col>
+              <ion-col>
+                <div class="forgetpass" id="open-forgetpass">
+                  <a>Olvidaste la password?</a>
+                </div>
+
+                <ion-alert
+                  trigger="open-forgetpass" 
+                  header="Please enter your Email" 
+                  [buttons]="alertButtons"
+                  [inputs]="alertInputs"
+                  ></ion-alert>
+              </ion-col>
             </ion-row>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
-
-  
-
-
-
-
-
-
- 
-  
- 
-
-  
-    
-
 
 </ion-content>

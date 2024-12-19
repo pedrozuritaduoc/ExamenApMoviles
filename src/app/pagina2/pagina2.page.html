@@ -6,22 +6,38 @@
 
 <ion-content>
   <!-- Sección para agregar un nuevo producto -->
+   <ion-header>
   <ion-list>
-    <ion-item>
-      <ion-input placeholder="Nombre del Producto" [(ngModel)]="nombreProducto"></ion-input>
-      <ion-button (click)="agregarP()">Agregar</ion-button>
-    </ion-item>
+    <ion-grid class="ion-margin-start ion-margin-end">
+      <ion-input type="text" placeholder="Nombre del Producto" [(ngModel)]="nombreProducto" required></ion-input>
+      <ion-input type="text" placeholder="Descripcion" [(ngModel)]="descripcion" required></ion-input>
+      <ion-input type="number" placeholder="Gramaje" [(ngModel)]="gramaje" required></ion-input>
+      <ion-input type="number" placeholder="Precio" [(ngModel)]="precio" required></ion-input>
+      <ion-button expand="block" (click)="agregarP()">Agregar</ion-button>
+    </ion-grid>
   </ion-list>
+</ion-header>
 
   <!-- Lista de productos con opciones para modificar y eliminar -->
   <ion-list>
-    <ion-item *ngFor="let producto of productos">
-      <ion-label>{{ producto.name }}</ion-label>
-      <!-- Botón para modificar el producto -->
-      <ion-button (click)="modificarProducto(producto.id, producto.name)">Modificar</ion-button>
-      <!-- Botón para eliminar el producto -->
-      <ion-button color="danger" (click)="eliminarProducto(producto.id)">Eliminar</ion-button>
-    </ion-item>
+    <ion-card *ngFor="let producto of productos">
+      <ion-card-header>
+        <ion-card-title>{{ producto.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ producto.descripcion }}</p>
+        <p>{{ producto.gramaje }} grs.</p>
+        <p>$ {{ producto.precio }}</p>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" (click)="modificarProducto(producto)">Modificar</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="block" color="danger" (click)="eliminarProducto(producto.id)">Eliminar</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
   </ion-list>
 
   <!-- Botón para volver al menú principal -->
@@ -34,6 +50,12 @@
 
 <ion-footer>
   <ion-toolbar>
-    <ion-title>Comidapp</ion-title>
+    <ion-row>
+      <ion-col>
+        <h6 class="ion-text-center" >
+          © 2024 ComidApp. All rights reserved.
+      </h6>
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-footer>
