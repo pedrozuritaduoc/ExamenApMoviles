@@ -22,6 +22,13 @@ export class HomePage {
     this.router.navigate(['quienes-somos']);
   }
 
+  irContacto(){
+    this.router.navigate(['contacto']);
+  }
+
+  irCatalogo(){
+    this.router.navigate(['catalogo']);
+  }
   
    // Método para cerrar sesión
    async cerrarSesion() {

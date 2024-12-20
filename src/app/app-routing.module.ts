@@ -33,11 +33,25 @@ const routes: Routes = [
   },
   {
     path: 'contacto',
-    loadChildren: () => import('./contacto/contacto.module').then( m => m.ContactoPageModule)
+    loadChildren: () => import('./contacto/contacto.module').then( m => m.ContactoPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'catalogo',
-    loadChildren: () => import('./catalogo/catalogo.module').then( m => m.CatalogoPageModule)
+    loadChildren: () => import('./catalogo/catalogo.module').then( m => m.CatalogoPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'advertencia',
+    loadChildren: () => import('./advertencia/advertencia.module').then( m => m.AdvertenciaPageModule)
+  },
+  {
+    path: 'tips',
+    loadChildren: () => import('./tips/tips.module').then( m => m.TipsPageModule)
+  },
+  {
+    path: 'vision',
+    loadChildren: () => import('./vision/vision.module').then( m => m.VisionPageModule)
   },
 ];
 

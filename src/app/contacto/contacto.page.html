@@ -1,13 +1,63 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>contacto</ion-title>
+    <ion-title>Ubicanos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-title size="large">Contacto</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">contacto</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <!--ion card-->
+        <ion-card>
+          <div class="ion-text-center">
+            <img alt="logoComidapp" src="../../assets/contacto.jpg" width="200" />
+          </div>
+
+          <ion-card-header>
+            <ion-card-subtitle>
+             Datos de contacto
+            </ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-item>
+              <p>
+                <strong>Correo:</strong> contacto&#64;comidapp.com
+                <br>
+                <strong>Teléfono:</strong> +56 9 1234 5678
+                <br>
+                <strong>Dirección:</strong> Av. Siempre Viva 123, Santiago, Chile
+              </p>
+                
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-row>
+    <ion-col>
+      <ion-button expand="full" color="secondary" (click)="VolverMenuPrinc()">Volver al Menú Principal</ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <h6 class="ion-text-center" >
+          © 2024 ComidApp. All rights reserved.
+      </h6>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
