@@ -6,17 +6,19 @@
 
 <ion-content>
   <!-- Sección para agregar un nuevo producto -->
-   <ion-header>
-  <ion-list>
-    <ion-grid class="ion-margin-start ion-margin-end">
-      <ion-input type="text" placeholder="Nombre del Producto" [(ngModel)]="nombreProducto" required></ion-input>
-      <ion-input type="text" placeholder="Descripcion" [(ngModel)]="descripcion" required></ion-input>
-      <ion-input type="number" placeholder="Gramaje" [(ngModel)]="gramaje" required></ion-input>
-      <ion-input type="number" placeholder="Precio" [(ngModel)]="precio" required></ion-input>
-      <ion-button expand="block" (click)="agregarP()">Agregar</ion-button>
-    </ion-grid>
-  </ion-list>
-</ion-header>
+  <ion-header>
+    <ion-list>
+      <ion-grid class="ion-margin-start ion-margin-end">
+        <ion-input type="text" placeholder="Nombre del Producto" [(ngModel)]="nombreProducto" required></ion-input>
+        <ion-input type="text" placeholder="Descripción" [(ngModel)]="descripcion" required></ion-input>
+        <ion-input type="number" placeholder="Gramaje" [(ngModel)]="gramaje" required></ion-input>
+        <ion-input type="number" placeholder="Precio" [(ngModel)]="precio" required></ion-input>
+        <!-- Nuevo campo para la URL de la imagen -->
+        <ion-input type="text" placeholder="URL de la Imagen" [(ngModel)]="imagenUrl" required></ion-input>
+        <ion-button expand="block" (click)="agregarP()">Agregar</ion-button>
+      </ion-grid>
+    </ion-list>
+  </ion-header>
 
   <!-- Lista de productos con opciones para modificar y eliminar -->
   <ion-list>
@@ -25,6 +27,8 @@
         <ion-card-title>{{ producto.name }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
+        <!-- Mostrar la imagen del producto -->
+        <ion-img [src]="producto.imagenUrl" alt="Imagen de {{ producto.name }}" class="product-image"></ion-img>
         <p>{{ producto.descripcion }}</p>
         <p>{{ producto.gramaje }} grs.</p>
         <p>$ {{ producto.precio }}</p>
@@ -52,9 +56,9 @@
   <ion-toolbar>
     <ion-row>
       <ion-col>
-        <h6 class="ion-text-center" >
+        <h6 class="ion-text-center">
           © 2024 ComidApp. All rights reserved.
-      </h6>
+        </h6>
       </ion-col>
     </ion-row>
   </ion-toolbar>

@@ -14,6 +14,7 @@ export class Pagina2Page implements OnInit {
   descripcion: string = ''; // input descripcion prodcucto
   gramaje: string ='';
   precio: string ='';
+  imagenUrl: string = ''; // Nueva variable para la URL de la imagen
 
   constructor(private router: Router, private firebaseService: FirebaseService) {}
 
@@ -26,13 +27,20 @@ export class Pagina2Page implements OnInit {
   agregarP() {
     if (this.nombreProducto.trim()) {
       this.firebaseService
-        .addItem('Producto', { name: this.nombreProducto, descripcion: this.descripcion, gramaje: this.gramaje, precio: this.precio })
+        .addItem('Producto', {
+          name: this.nombreProducto,
+          descripcion: this.descripcion,
+          gramaje: this.gramaje,
+          precio: this.precio,
+          imagenUrl: this.imagenUrl, // Incluye la URL de la imagen
+        })
         .then(() => {
           console.log('Producto agregado con éxito');
           this.nombreProducto = '';
           this.descripcion = '';
           this.gramaje = '';
           this.precio = '';
+          this.imagenUrl = ''; // Limpia el campo de la imagen
           this.obtenerProductos(); // Actualiza los productos
         })
         .catch((error) => {
@@ -42,6 +50,7 @@ export class Pagina2Page implements OnInit {
       console.log('El nombre no puede estar vacío');
     }
   }
+  
 
   // Función para obtener los productos desde Firebase
   obtenerProductos() {
@@ -76,12 +85,19 @@ export class Pagina2Page implements OnInit {
       return;
     }
   
+    const nuevaImagenUrl = prompt('Introduce la nueva URL de la imagen:', producto.imagenUrl);
+    if (nuevaImagenUrl === null || !nuevaImagenUrl.trim()) {
+      console.log('La URL de la imagen no puede estar vacía');
+      return;
+    }
+  
     // Actualizar el producto con los nuevos valores
     const datosActualizados = {
       name: nuevoNombre,
       descripcion: nuevaDescripcion,
       gramaje: Number(nuevoGramaje),
-      precio: Number(nuevoPrecio)
+      precio: Number(nuevoPrecio),
+      imagenUrl: nuevaImagenUrl, // Actualiza la URL de la imagen
     };
   
     this.firebaseService
@@ -94,6 +110,7 @@ export class Pagina2Page implements OnInit {
         console.error('Error al modificar el producto:', error);
       });
   }
+  
   
 
   // Función para eliminar un producto

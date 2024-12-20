@@ -10,6 +10,8 @@ ionic generate service services/firebase
 ---ver codigo de main.ts y app.module.ts
 
 
+conexion base de datos en main y app module
+
 user
 email: pe.zurita@duocuc.cl
 password: pe.zurita
