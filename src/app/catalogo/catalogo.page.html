@@ -1,11 +1,10 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Catálogo de Productos</ion-title>
+    <ion-title>catalogo</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <!-- Lista de productos -->
+<ion-content [fullscreen]="true">
   <ion-list>
     <ion-card *ngFor="let producto of productos">
       <ion-card-header>
@@ -16,27 +15,17 @@
         <ion-img [src]="producto.imagenUrl" alt="Imagen de {{ producto.name }}" class="product-image"></ion-img>
         <p>{{ producto.descripcion }}</p>
         <p>{{ producto.gramaje }} grs.</p>
-        <p>$ {{ producto.precio }}</p>
+        
+        
       </ion-card-content>
     </ion-card>
   </ion-list>
-
-  <!-- Botón para volver al menú principal -->
-  <ion-row>
-    <ion-col>
-      <ion-button expand="full" color="secondary" (click)="VolverMenuPrinc()">Volver al Menú Principal</ion-button>
-    </ion-col>
-  </ion-row>
 </ion-content>
-
-<ion-footer>
-  <ion-toolbar>
-    <ion-row>
-      <ion-col>
-        <h6 class="ion-text-center">
-          © 2024 ComidApp. All rights reserved.
-        </h6>
-      </ion-col>
-    </ion-row>
-  </ion-toolbar>
-</ion-footer>
+ <!-- Lista de productos con opciones para modificar y eliminar -->
+ 
+ <!-- Botón para volver al menú principal -->
+ <ion-row>
+  <ion-col>
+    <ion-button expand="full" color="secondary" (click)="VolverMenuPrinc()">Volver al Menú Principal</ion-button>
+  </ion-col>
+</ion-row>

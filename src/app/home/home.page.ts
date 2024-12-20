@@ -29,7 +29,19 @@ export class HomePage {
   irCatalogo(){
     this.router.navigate(['catalogo']);
   }
+
+  irTips(){
+    this.router.navigate(['tips']);
+  }
+
+  irAdvertencias(){
+    this.router.navigate(['advertencia']);
+  }
   
+  irVision(){
+    this.router.navigate(['vision']);
+  }
+
    // Método para cerrar sesión
    async cerrarSesion() {
     try {

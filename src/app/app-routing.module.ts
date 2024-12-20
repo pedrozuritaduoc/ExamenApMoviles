@@ -53,6 +53,10 @@ const routes: Routes = [
     path: 'vision',
     loadChildren: () => import('./vision/vision.module').then( m => m.VisionPageModule)
   },
+  {
+    path: 'carrito',
+    loadChildren: () => import('./carrito/carrito.module').then( m => m.CarritoPageModule)
+  },
 ];
 
 @NgModule({

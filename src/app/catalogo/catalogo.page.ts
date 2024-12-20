@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../services/firebase.service'; // Importa el servicio de Firebase
-import { Router } from '@angular/router'; // Importa el servicio Router
-
+import { Router } from '@angular/router';
+import { FirebaseService } from '../services/firebase.service';
 @Component({
   selector: 'app-catalogo',
   templateUrl: './catalogo.page.html',
@@ -9,23 +8,21 @@ import { Router } from '@angular/router'; // Importa el servicio Router
 })
 export class CatalogoPage implements OnInit {
   productos: any[] = []; // Array para almacenar los productos
-
-  constructor(private router: Router, private firebaseService: FirebaseService) {}
+  
+  constructor(private router: Router, private firebaseService: FirebaseService) { }
 
   ngOnInit() {
-    // Obtén los productos al inicializar la página
-    this.obtenerProductos();
+    this.obtenerProductos(); // llama al metodo obtener productos
   }
+// Función para volver al menú principal
+VolverMenuPrinc() {
+  this.router.navigate(['home']);
+}
 
-  // Función para obtener los productos desde Firebase
-  obtenerProductos() {
-    this.firebaseService.getData('Producto').subscribe((data) => {
-      this.productos = data; // Asigna los productos obtenidos a la variable productos
-    });
-  }
-
-  // Función para volver al menú principal
-  VolverMenuPrinc() {
-    this.router.navigate(['home']);
-  }
+// Función para obtener los productos desde Firebase
+obtenerProductos() {
+  this.firebaseService.getData('Producto').subscribe((data) => {
+    this.productos = data;
+  });
+}
 }
